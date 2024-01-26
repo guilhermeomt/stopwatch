@@ -36,7 +36,7 @@ class StopwatchBloc extends Bloc<StopwatchEvent, StopwatchState> {
     emit(StopwatchRun(event.duration));
 
     _tickerSubscription?.cancel();
-    _tickerSubscription = _ticker.tick(ticks: event.duration).listen(
+    _tickerSubscription = _ticker.tick().listen(
           (duration) => add(StopwatchTicked(duration: duration)),
         );
   }
